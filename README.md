@@ -1,5 +1,6 @@
 # Project: Password Generator
-## Deployed Link: https://dragontalker.github.io/BootCamp_Project3_PasswordGenerator/
+## Deployed Link: 
+https://dragontalker.github.io/BootCamp_Project3_PasswordGenerator/
 
 ## Overview
 
