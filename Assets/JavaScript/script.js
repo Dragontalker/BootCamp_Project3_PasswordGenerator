@@ -10,10 +10,10 @@ const characterCollection = [
 
 function typeSelector ()  {
   var result = [];
-  result[0] = window.confirm("Do you want to include numbers in your password?");
-  result[1] = window.confirm("Do you want to include lower case letters in your passowrd?");
-  result[2] = window.confirm("Do you want to include upper case letters in your password?");
-  result[3] = window.confirm("Do you want to include special characters in your password?");
+  result[0] = window.confirm("Include numbers in your password? \nIf you do, click 'Ok', otherwise click 'Cancel' to move on.");
+  result[1] = window.confirm("Include lower case letters in your passowrd?  \nIf you do, click 'Ok', otherwise click 'Cancel' to move on.");
+  result[2] = window.confirm("Include upper case letters in your password?  \nIf you do, click 'Ok', otherwise click 'Cancel' to move on.");
+  result[3] = window.confirm("Include special characters in your password?  \nIf you do, click 'Ok', otherwise click 'Cancel' to move on.");
   return result;
 }
 
@@ -47,21 +47,21 @@ function writePassword() {
   let typeChecker = userType.includes(true);
 
   if (!lengthChecker && !typeChecker) {
-    let userResponse = window.confirm("Error: Invalid length and types. Re-enter!");
+    let userResponse = window.confirm("Invalid length: must be between 8 and 128. \nInvalid type: must include at least one type of character. \nClick 'Ok' to try again or click 'Cancel' to exit.");
     if (userResponse) {
       writePassword();
     } else {
       return;
     }
   } else if (!lengthChecker) {
-    let userResponse = window.confirm("Error: Invalid length. Re-enter!");
+    let userResponse = window.confirm("Invalid length: must be between 8 and 128. \nClick 'Ok' to try again or click 'Cancel' to exit.");
     if (userResponse) {
       writePassword();
     } else {
       return;
     }
   } else if (!typeChecker) {
-    let userResponse = window.confirm("Error: Invalid type. Re-enter!");
+    let userResponse = window.confirm("Invalid type: must include at least one type of character. \nClick 'Ok' to try again or click 'Cancel' to exit.");
     if (userResponse) {
       writePassword();
     } else {
