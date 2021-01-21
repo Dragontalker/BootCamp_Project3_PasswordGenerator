@@ -70,10 +70,8 @@ function writePassword() {
   } else {
     let userSample = makeSample(userType);
     let password = generatePassword(userSample, userLength);
-  
-  
-  let passwordText = document.querySelector("#password");
-  passwordText.value = password;
+    let passwordText = document.querySelector("#password");
+    passwordText.value = password;
   }
 }
 
