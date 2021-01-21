@@ -7,11 +7,11 @@ This project creates an application that enables employees to generate random pa
 
 ## Screenshot
 
-# When all the inputs are valid, a password of random characters is generated, as shown blow:
+When all the inputs are valid, a password of random characters is generated, as shown blow:
 
 ![password generator screenshot](./Assets/Images/output_1.png)
 
-# Invalid inputs will lead to alert message be printed instead, as shown below:
+Invalid inputs will lead to alert message be printed instead, as shown below:
 
 ![password generator screenshot](./Assets/Images/output_2.png)
 
