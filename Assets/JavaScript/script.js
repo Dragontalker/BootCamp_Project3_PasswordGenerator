@@ -38,16 +38,16 @@ function generatePassword (sample, length) {
 
 // Write password to the #password input
 function writePassword() {
-  var userLength;
-  var userSample;
-  var password;
+  // var userLength;
+  // var userSample;
+  // var password;
 
   // Ask user to enter the desire length of password, if requirement is not met, ask user to re-enter the length.
-  userLength = parseInt(window.prompt("Please enter the desired length of your password, between 8 and 128."));
-  userType = typeSelector();
+  let userLength = parseInt(window.prompt("Please enter the desired length of your password, between 8 and 128."));
+  let userType = typeSelector();
 
-  lengthChecker = userLength >=8 && userLength <= 128;
-  typeChecker = userType.includes(true);
+  let lengthChecker = userLength >=8 && userLength <= 128;
+  let typeChecker = userType.includes(true);
 
   if (!lengthChecker && !typeChecker) {
     let userResponse = window.confirm("Error: Invalid length and types. Re-enter!");
@@ -71,11 +71,11 @@ function writePassword() {
       return;
     }
   } else {
-    userSample = makeSample(userType);
-    password = generatePassword(userSample, userLength);
+    let userSample = makeSample(userType);
+    let password = generatePassword(userSample, userLength);
   
-  var passwordText;
-  passwordText = document.querySelector("#password");
+  
+  let passwordText = document.querySelector("#password");
   passwordText.value = password;
   }
 }
