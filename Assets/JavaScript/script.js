@@ -27,31 +27,6 @@ function makeSample(inputs) {
   return sample;
 }
 
-
-function grabInput () {
-  var userLength;
-  userLength = parseInt(window.prompt("Please enter the desired length of your password, between 8 and 128."));
-  if (!userLength) {
-    let userResponse = window.confirm("No length was received, click 'Yes' to re-enter the desired length of your password, click 'No' to exit.");
-    if (userResponse) {
-      grabInput();
-    } else {
-      return;
-    }
-  } else {
-    if (userLength >= 8 && userLength <= 128) {
-      return userLength;
-    } else {
-      let userResponse = window.confirm("The length of your password must be between 8 and 128, click 'Yes' to re-enter the desired length of your password, click 'No' to exit.");
-      if (userResponse) {
-        grabInput();
-      } else {
-        return;
-      }
-    } 
-  } 
-}
-
 function generatePassword (sample, length) {
   let password = ""
   for (let i = 0; i < length; i++) {
@@ -70,36 +45,40 @@ function writePassword() {
 
   // Ask user to enter the desire length of password, if requirement is not met, ask user to re-enter the length.
   userLength = parseInt(window.prompt("Please enter the desired length of your password, between 8 and 128."));
-  if (!userLength) {
-    let userResponse = window.confirm("No length was received, click 'Yes' to re-enter the desired length of your password, click 'No' to exit.");
+  userType = typeSelector();
+
+  lengthChecker = userLength >=8 && userLength <= 128;
+  typeChecker = userType.includes(true);
+
+  if (!lengthChecker && !typeChecker) {
+    let userResponse = window.confirm("Error: Invalid length and types. Re-enter!");
+    if (userResponse) {
+      writePassword();
+    } else {
+      return;
+    }
+  } else if (!lengthChecker) {
+    let userResponse = window.confirm("Error: Invalid length. Re-enter!");
+    if (userResponse) {
+      writePassword();
+    } else {
+      return;
+    }
+  } else if (!typeChecker) {
+    let userResponse = window.confirm("Error: Invalid type. Re-enter!");
     if (userResponse) {
       writePassword();
     } else {
       return;
     }
   } else {
-    if (userLength >= 8 && userLength <= 128) {
-      return userLength;
-    } else {
-      let userResponse = window.confirm("The length of your password must be between 8 and 128, click 'Yes' to re-enter the desired length of your password, click 'No' to exit.");
-      if (userResponse) {
-        writePassword();
-      } else {
-        return;
-      }
-    } 
-  } 
-
-  // Ask the user to select least one type of characters to be included in the password, if none selected, ask for re-enter.
-  userInput = typeSelector();
-  
-  // When all requirements are met, producing the password.
-  userSample = makeSample(userInput);
-  password = generatePassword(userSample, userLength);
+    userSample = makeSample(userInput);
+    password = generatePassword(userSample, userLength);
   
   var passwordText;
   passwordText = document.querySelector("#password");
   passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
