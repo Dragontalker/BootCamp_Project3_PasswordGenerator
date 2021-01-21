@@ -38,9 +38,6 @@ function generatePassword (sample, length) {
 
 // Write password to the #password input
 function writePassword() {
-  // var userLength;
-  // var userSample;
-  // var password;
 
   // Ask user to enter the desire length of password, if requirement is not met, ask user to re-enter the length.
   let userLength = parseInt(window.prompt("Please enter the desired length of your password, between 8 and 128."));
