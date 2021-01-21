@@ -39,7 +39,6 @@ function generatePassword (sample, length) {
 // Write password to the #password input
 function writePassword() {
   var userLength;
-  var userInput;
   var userSample;
   var password;
 
