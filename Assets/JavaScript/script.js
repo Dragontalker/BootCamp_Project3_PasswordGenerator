@@ -72,7 +72,7 @@ function writePassword() {
       return;
     }
   } else {
-    userSample = makeSample(userInput);
+    userSample = makeSample(userType);
     password = generatePassword(userSample, userLength);
   
   var passwordText;
